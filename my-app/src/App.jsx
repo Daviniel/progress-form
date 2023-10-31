@@ -18,9 +18,9 @@ function App() {
           <label htmlFor=''>Estado Civil</label>
           <select>
             <option value=''>- selecione...</option>
-            <option value='solteiro'>Solteiro</option>
-            <option value='casado'>Casado</option>
-            <option value='divorciado'>Divorciado</option>
+            <option value='solteiro'>Solteiro(a)</option>
+            <option value='casado'>Casado(a)</option>
+            <option value='divorciado'>Divorciado(a)</option>
           </select>
         </div>
         <div className='form-group'>
