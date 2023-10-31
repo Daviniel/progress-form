@@ -21,6 +21,28 @@ function App() {
 
   };
 
+  const calculateProgress = () => {
+    let value = 0;
+    let amountToAdd = 25;
+
+    if (data.Name) {
+      value += amountToAdd;
+    }
+    if (data.email) {
+      value += amountToAdd;
+    }
+    if (data.maritalStatus) {
+      value += amountToAdd;
+    }
+    if (data.genre) {
+      value += amountToAdd;
+    }
+
+    return value;
+  };
+
+  calculateProgress();
+
   return (
     <div className='App'>
       <h1>Progresso do Formulário</h1>
