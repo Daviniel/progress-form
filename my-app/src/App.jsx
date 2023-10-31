@@ -1,22 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+
+  const [data, setData] = useState({
+    Name: '',
+    email: '',
+    maritalStatus: '',
+    genre: ''
+  });
+
+  const handleClick = (event) => {
+
+    const { name, value } = event.target;
+
+    setData((prev) => {
+      const newData = { ...prev, [name]: value };
+
+      return newData;
+    });
+
+  };
+
   return (
     <div className='App'>
       <h1>Progresso do Formulário</h1>
 
       <main>
+        <div className="bar-container">
+          <div className="bar" style={{ width: '0%' }}></div>
+        </div>
         <div className='form-group'>
           <label htmlFor=''>Nome Completo</label>
-          <input />
+          <input name='Name' value={data.Name} onChange={handleClick} />
         </div>
         <div className='form-group'>
           <label htmlFor=''>E-mail</label>
-          <input />
+          <input name='email' value={data.email} onChange={handleClick}/>
         </div>
         <div className='form-group'>
           <label htmlFor=''>Estado Civil</label>
-          <select>
+          <select name='maritalStatus' value={data.maritalStatus} onChange={handleClick}>
             <option value=''>- selecione...</option>
             <option value='solteiro'>Solteiro(a)</option>
             <option value='casado'>Casado(a)</option>
@@ -27,10 +50,10 @@ function App() {
           <label htmlFor=''>Gênero</label>
           <div className='radios-container'>
             <span>
-              <input type='radio' /> Masculino
+              <input type='radio' name='genre' value="masculino" onChange={handleClick} checked={data.genre === 'masculino'} /> Masculino
             </span>
             <span>
-              <input type='radio' /> Feminino
+              <input type='radio' name='genre' value="feminino" onChange={handleClick} checked={data.genre === 'masculino'} /> Feminino
             </span>
           </div>
         </div>
