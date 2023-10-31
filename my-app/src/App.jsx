@@ -10,7 +10,6 @@ function App() {
   });
 
   const handleClick = (event) => {
-
     const { name, value } = event.target;
 
     setData((prev) => {
@@ -26,10 +25,16 @@ function App() {
     let amountToAdd = 25;
 
     if (data.Name) {
-      value += amountToAdd;
+      const checkString = data.Name.split(' ');
+      if (checkString[1]){
+        value += amountToAdd;
+      }
     }
     if (data.email) {
-      value += amountToAdd;
+      let pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (pattern.test(data.email)) {
+        value += amountToAdd;
+      }
     }
     if (data.maritalStatus) {
       value += amountToAdd;
@@ -49,7 +54,7 @@ function App() {
 
       <main>
         <div className="bar-container">
-          <div className="bar" style={{ width: '0%' }}></div>
+          <div className="bar" style={{ width: `${calculateProgress()}%` }}></div>
         </div>
         <div className='form-group'>
           <label htmlFor=''>Nome Completo</label>
