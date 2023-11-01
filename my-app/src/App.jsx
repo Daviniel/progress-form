@@ -48,6 +48,17 @@ function App() {
 
   calculateProgress();
 
+  const handleChange = () => {
+    alert('Formulário enviado com sucesso');
+    setData({
+      Name: '',
+      email: '',
+      maritalStatus: '',
+      genre: ''
+    });
+
+  };
+
   return (
     <div className='App'>
       <h1>Progresso do Formulário</h1>
@@ -84,7 +95,7 @@ function App() {
             </span>
           </div>
         </div>
-        <button>Enviar Formulário</button>
+        <button onClick={handleChange} disabled={calculateProgress() !== 100}>Enviar Formulário</button>
       </main>
     </div>
   );
